@@ -1,0 +1,20 @@
+6.1)
+	Ubuntu 0.081 seconden
+	Windows 0.1358 seconden
+
+6.2
+	a) 	Windows heeft beschikking over 4 cores / 8 threads
+		ubuntu heeft beschikking over 4 cores / 4 threads
+		
+		Als wij op beide apparaten 4 instances laten lopen zien wij op Windows dat de tijd omhoog schiet naar 0.15** - 0.20**.
+		Op ubuntu zien wij de tijden stijgen tot 0.06** seconden, met de snelste tijd nog rond de tijd van een enkele instance
+		
+	b) Op windows zien wij een erg klein verschil als wij van focus veranderen (0.1358 tegenover 0.1370). Maar je hebt wel een spike bij 2 a 3 loops als je een nieuwe applicatie opstart
+		Echter fluxueert dit nog erg, en soms is hij zelfs sneller als hij geen focus heeft.
+		
+		Op ubuntu zien wij hetzelfde fenomeen. Hier krijg je eerst een spike als een andere applicatie opstart,
+		en daarna is hij 0.001 seconde langzamer, soms wat meer, soms wat minder...
+
+6.3)
+	=> zie python code in interrupt.py
+		
