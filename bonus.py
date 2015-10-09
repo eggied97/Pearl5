@@ -3,7 +3,6 @@ __author__ = 'Egbert'
 import random
 import time
 
-packets = []
 queue = []
 timeQueue = []
 waitTime = []
@@ -16,40 +15,23 @@ countPerTimeCycle = 0
 
 timePerTick = 0.0001
 
+numberOfComputers = 4;
+
 
 while packetCount > 0:
-    pc1IsSending = random.random() < chancePcIsSending
-    pc2IsSending = random.random() < chancePcIsSending
-    pc3IsSending = random.random() < chancePcIsSending
-    pc4IsSending = random.random() < chancePcIsSending
 
-    if pc1IsSending:
-        if packetCount > 0:
-            queue.append("pc1")
-            timeQueue.append(time.clock())
-            countPerTimeCycle += 1
-            packetCount -= 1
+    i = numberOfComputers
 
-    if pc2IsSending:
-        if packetCount > 0:
-            queue.append("pc2")
-            timeQueue.append(time.clock())
-            countPerTimeCycle += 1
-            packetCount -= 1
+    while i > 0:
+        if random.random() < chancePcIsSending:
+            if packetCount > 0:
+                queue.append("pc{}".format(i))
+                timeQueue.append(time.clock())
+                countPerTimeCycle += 1
+                packetCount -= 1
 
-    if pc3IsSending:
-        if packetCount > 0:
-            queue.append("pc3")
-            timeQueue.append(time.clock())
-            countPerTimeCycle += 1
-            packetCount -= 1
+        i -= 1
 
-    if pc4IsSending:
-        if packetCount > 0:
-            queue.append("pc4")
-            timeQueue.append(time.clock())
-            countPerTimeCycle += 1
-            packetCount -= 1
 
     if (countPerTimeCycle == 1) & (len(queue) == 1):
         #print("{} sended, no waiting time because he was the only one.".format(queue[0]))
